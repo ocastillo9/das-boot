@@ -1,6 +1,9 @@
 package com.boot.controller;
 
-import org.springframework.stereotype.Controller;
+
+import com.boot.util.CassandraService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class HomeController {
 
-    @RequestMapping(path = "/test", method = RequestMethod.POST)
+    @Autowired
+    private ApplicationContext context;
+
+    @RequestMapping(method = RequestMethod.GET)
     public String home(){
+        CassandraService cassandraService = context.getBean(CassandraService.class);
+        cassandraService.getMyService().doStuff();
+
+        /*MyService myService = context.getBean(MyService.class);
+        myService.doStuff();*/
         return "Das Boot, reporting for duty!";
     }
 }
