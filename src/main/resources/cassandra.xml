@@ -4,14 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
        <beans profile="local">
-              <bean id="test" class="com.boot.util.TestBeanXML">
-
-              </bean>
+              <bean id="test" class="com.boot.util.TestBeanXMLLocal"></bean>
+              <!--<bean id="serviceXML" class="com.boot.util.MyServiceLocal"></bean>-->
        </beans>
 
        <beans profile="cloud">
-              <bean id="test" class="com.boot.util.TestBeanXMLLocal">
-
-              </bean>
+              <bean id="test" class="com.boot.util.TestBeanXML"></bean>
+              <!--<bean id="serviceXML" class="com.boot.util.MyService"></bean>-->
        </beans>
+       <!--<beans>
+              <bean id="cassandraServiceXML" class="com.boot.util.CassandraService">
+                     <constructor-arg ref="serviceXML"/>
+              </bean>
+       </beans>-->
+
 </beans>
