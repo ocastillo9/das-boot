@@ -5,6 +5,7 @@
 
        <beans profile="local">
               <bean id="test" class="com.boot.util.TestBeanXMLLocal"></bean>
+              <bean id="test2" class="com.boot.util.TestBeanXMLLocal"></bean>
               <!--<bean id="serviceXML" class="com.boot.util.MyServiceLocal"></bean>-->
        </beans>
 
